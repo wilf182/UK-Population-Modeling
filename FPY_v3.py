@@ -29,9 +29,8 @@ print(python_ver, "\n")
 #______________________________________________________________________________
 
 #_Input_Starting_Population_and_Death_Rates____________________________________
-data = pd.read_csv('Population.csv', delimiter=',', skiprows=2, 
-                   header=None).values           
-                   
+data = pd.read_csv('data/Population.csv', delimiter=',', skiprows=2, 
+                   header=None).values
 m_pop = data[0,:]
 f_pop = data[1,:]
 m_prob_death = data[2,:]
@@ -81,7 +80,7 @@ age_groups.append("100+")
 #______________________________________________________________________________
 
 #_Import_NHS_Admissions_Data___________________________________________________
-NHS_data = pd.read_csv('NHS Admissions1.csv', delimiter=',', skiprows=1, 
+NHS_data = pd.read_csv('data/NHS Admissions1.csv', delimiter=',', skiprows=1, 
                        header=None).values
 
 NHS_admissions = NHS_data[0]

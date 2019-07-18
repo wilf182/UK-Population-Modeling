@@ -21,14 +21,13 @@ import time
 
 from numpy import diff
 
-import plotly as plotly
-import plotly.plotly as py
-import plotly.graph_objs as go
+# import plotly as plotly
+import chart_studio.plotly as py
 
 import plotly.tools as tls
 # import plotly.figure_factory as FF
-
-from plotly.grid_objs import Grid, Column
+import plotly.graph_objects as go
+from chart_studio.grid_objs import Grid, Column
 # _____________________________________________________________________________
 
 # MIT Essay on Automation
@@ -37,10 +36,10 @@ from plotly.grid_objs import Grid, Column
 start_time = time.time()
 
 # Sign_in_to_Plotly_API________________________________________________________
-tls.set_credentials_file(
-        username='wh00079',
-        api_key='L0uVmAyLfEsbb2aMX3LV'
-        )
+# tls.set_credentials_file(
+#         username='wh00079',
+#         api_key='L0uVmAyLfEsbb2aMX3LV'
+#         )
 # _____________________________________________________________________________
 
 
@@ -56,7 +55,7 @@ print(python_ver, "\n")
 # =============================================================================
 #
 # =============================================================================
-print('Plotly version:', plotly.__version__)
+# print('Plotly version:', plotly.__version__)
 # _____________________________________________________________________________
 
 
@@ -83,7 +82,7 @@ dpi = 600
 
 # _Input_Starting_Population_and_Death_Rates___________________________________
 data = pd.read_csv(
-        'Population.csv',
+        'Data/Population.csv',
         delimiter=',',
         skiprows=2,
         header=None
@@ -310,7 +309,7 @@ def hunthou(x, f_between_15_and_44):
     return format(r'%1.1f $\times 10^{5}$' % (x*1e-5))
 
 
-data = pd.read_csv("Migration Chart.csv")
+data = pd.read_csv("data/Migration Chart.csv")
 
 fig, ax = plt.subplots()
 
@@ -350,7 +349,7 @@ plt.show()
 
 
 # Life_Expectancy_Chart________________________________________________________
-data = pd.read_csv("life_expectancy_1841-20111 historic timeseries.csv")
+data = pd.read_csv("data/life_expectancy_1841-20111 historic timeseries.csv")
 
 plt.plot(
         data['Year'],
@@ -378,7 +377,7 @@ plt.show()
 
 
 # Total_Fertility_Rate_Chart___________________________________________________
-data = pd.read_csv("Fertility Rate chart.csv")
+data = pd.read_csv("data/Fertility Rate chart.csv")
 
 plt.plot(
         data['Year'],
@@ -398,7 +397,7 @@ plt.show()
 
 
 # ASMR_Chart___________________________________________________________________
-data = pd.read_csv("Figure_2__Age-standardised_mortality_" +
+data = pd.read_csv("data/Figure_2__Age-standardised_mortality_" +
                    "rates_(ASMRs),_2001_to_2016_chart.csv")
 
 plt.plot(
@@ -427,7 +426,7 @@ plt.show()
 
 
 # Tax_Receipts_as_Proportion_of_GDP_chart______________________________________
-data = pd.read_csv("Tax Receipts as Proportion of GDP.csv")
+data = pd.read_csv("data/Tax Receipts as Proportion of GDP.csv")
 
 plt.plot(
         data['Year'],
@@ -462,7 +461,7 @@ age_list.extend(age_list)
 
 # Import_NHS_Admissions_Data___________________________________________________
 NHS_data = pd.read_csv(
-        'NHS Admissions1.csv',
+        'data/NHS Admissions1.csv',
         delimiter=',',
         skiprows=1,
         header=None).values
@@ -537,7 +536,7 @@ for i in [m_migration_age_groups, f_migration_age_groups]:
         i.append(sum(pop[60:]))
     count += 1
 
-migration_data = pd.read_csv("migration data.csv", header=None).values
+migration_data = pd.read_csv("data/migration data.csv", header=None).values
 m_emigration_short_mean = np.array(migration_data[2])*1000
 f_emigration_short_mean = np.array(migration_data[3])*1000
 
@@ -627,7 +626,7 @@ tax_receipts_percent_of_GDP_std_dev = 0.02790739466
 # Purchinsing Power Parity conversion between GDP and USD
 USD_to_GDP_PPP = 0.701615
 GDP_forecast_data = pd.read_csv(
-        'GDP.csv',
+        'data/GDP.csv',
         delimiter=',',
         skiprows=1,
         names=["Year", "GDP"],
